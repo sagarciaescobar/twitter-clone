@@ -1,14 +1,13 @@
 'use client'
 
-const Button = ({children, href, onClick}) => {
+import React from 'react'
+import './index.scss'
+import { btnMain } from './index.module.scss'
 
-  if (href) return <a href={href}>
-    {children}
-  </a>
-
-  return (<button onClick={onClick}>
-    {children}
-  </button>)
+const Button = (props) => {
+  const { children, href, onClick, className, type } = props
+  const Component = React.createElement(href ? 'a' : 'button', {...props, className: `${btnMain} ${className} ${type}`})
+  return Component
 }
 
 export { Button }

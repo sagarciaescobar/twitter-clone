@@ -10,7 +10,6 @@ const useLanguage = (lang) => {
     }
     return d[lang].get(key)
   }
-
   return { t }
 }
 

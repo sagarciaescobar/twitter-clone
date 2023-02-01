@@ -1,11 +1,14 @@
 /** @type {import('next').NextConfig} */
+
+const path = require('path')
+
 const nextConfig = {
   experimental: {
     appDir: true,
   },
-  i18n: {
-    locales: ['en', 'es'],
-    defaultLocale: 'en',
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'app')],
+    additionalData: '@import "app/styles/variables.scss";',
   },
 }
 

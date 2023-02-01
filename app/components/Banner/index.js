@@ -1,12 +1,12 @@
-
 import { Button } from '../Button'
 import { useLanguage } from '@/app/hooks/server/useLanguage'
+import { banner } from './index.module.scss'
 
 const Banner = ({ children }) => {
   const { t } = useLanguage()
 
   return (
-    <div role="banner">
+    <div role="banner" className={banner}>
       <div>
         <h2>{t('No te pierdas de lo que esta pasando')}</h2>
         <p>{t('Las personas en Twitter son las primeras en saberlo.')}</p>

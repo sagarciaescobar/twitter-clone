@@ -1,4 +1,4 @@
-import './globals.css'
+import './styles/globals.scss'
 import { useLanguage } from './hooks/server/useLanguage'
 import { Banner } from './components/Banner'
 import { Button } from './components/Button'
@@ -11,11 +11,11 @@ export default function RootLayout({ children }) {
       <head />
       <body>
         <main>
-          <section>
+          <div>
             <NavBar />
             {children}
-          </section>
-          <Banner/>
+          </div>
+          <Banner />
         </main>
       </body>
     </html>
