@@ -2,12 +2,14 @@
 
 import React from 'react'
 import './index.scss'
-import { btnMain } from './index.module.scss'
+import Link from 'next/link'
 
-const Button = (props) => {
-  const { children, href, onClick, className, type } = props
-  const Component = React.createElement(href ? 'a' : 'button', {...props, className: `${btnMain} ${className} ${type}`})
-  return Component
+const Button = ({ children, onClick, className = '', type } ) => {
+  return <button className={`btn-main ${type} ${className}`} onClick={onClick}>{children}</button>
 }
 
-export { Button }
+const ButtonLink = ({ href, className = '', type, children }) => {
+  return <Link className={`btn-main ${type} ${className}`} href={href}>{children}</Link>
+}
+
+export { Button, ButtonLink }

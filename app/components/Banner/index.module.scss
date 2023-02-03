@@ -4,4 +4,27 @@
   left: 0;
   right: 0;
   background-color: $blue;
+  padding: 12px 38px 12px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  @include font-primary-title;
+  font-weight: 700;
+}
+
+.label {
+  @include font-primary-text;
+}
+
+.btnContainer {
+  display: flex;
+
+  a:first-child {
+    margin-right: 12px;
+    @include font-primary-text;
+    font-weight: 700;
+  }
 }

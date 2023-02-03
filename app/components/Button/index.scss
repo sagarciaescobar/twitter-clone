@@ -1,0 +1,39 @@
+.btn-main {
+  height: 34px;
+  border-radius: 17px;
+  outline: none;
+  padding: 0 16px;
+  display: block;
+  line-height: 34px;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.outline {
+    background: none;
+    outline: $principal-white solid 1px;
+    border: none;
+    @include font-primary-text;
+    color: $principal-white;
+    font-weight: 700;
+
+    &:hover {
+      background: $white-20;
+    }
+  }
+
+  &.solid {
+    background: $principal-white;
+    outline: none;
+    border: none;
+    @include font-primary-text;
+    color: $principal-black;
+    font-weight: 700;
+
+    &:hover {
+      background: $gray-secondary;
+    }
+  }
+}

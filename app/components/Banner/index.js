@@ -1,19 +1,31 @@
-import { Button } from '../Button'
-import { useLanguage } from '@/app/hooks/server/useLanguage'
-import { banner } from './index.module.scss'
+'use client'
 
-const Banner = ({ children }) => {
-  const { t } = useLanguage()
+import { Button, ButtonLink } from '../Button'
+import { useLanguage } from '@/app/hooks/client/useLanguage'
+import { banner, title, label, btnContainer } from './index.module.scss'
+
+const Banner = ({ children, lang }) => {
+  const { t } = useLanguage(lang)
+
+  const handleClick = () => {
+    console.log('funciono')
+  }
 
   return (
     <div role="banner" className={banner}>
       <div>
-        <h2>{t('No te pierdas de lo que esta pasando')}</h2>
-        <p>{t('Las personas en Twitter son las primeras en saberlo.')}</p>
+        <h2 className={title}>{t('No te pierdas de lo que esta pasando')}</h2>
+        <p className={label}>
+          {t('Las personas en Twitter son las primeras en saberlo.')}
+        </p>
       </div>
-      <div>
-        <Button>{t('Ingresar')}</Button>
-        <Button>{t('Registrarse')}</Button>
+      <div className={btnContainer}>
+        <ButtonLink type="outline" href="/login">
+          {t('Ingresar')}
+        </ButtonLink>
+        <Button type="solid" href="/register">
+          {t('Registrarse')}
+        </Button>
       </div>
     </div>
   )
