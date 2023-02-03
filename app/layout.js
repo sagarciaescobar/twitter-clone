@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
             <NavBar />
             {children}
           </div>
-          <Banner />
+          <Banner lang={lang} />
         </main>
       </body>
     </html>
