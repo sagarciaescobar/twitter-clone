@@ -2,12 +2,28 @@
 // colors
 
 $primary-color: #000000;
+$white-50: #ffffff40;
 $blue: #1d9bf0;
 $white: #eff3f4;
-$gray: #d7dbdc;
+$white-20: #f0f4f533;
+$gray: #cccdce;
+$gray-secondary: #dcdcdc;
 
 // font colors
 
 $principal-white: #e7e9ea;
 $principal-black: #0f1419;
 $secondary: #71767b;
+
+// font
+@mixin font-primary-title {
+  color: $white;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+@mixin font-primary-text {
+  color: $white;
+  font-weight: 400;
+  font-size: 15px;
+}
