@@ -3,7 +3,7 @@ import styles from './page.module.scss'
 export default function Home() {
   return (
     <section className={styles.main}>
-      <p>test</p>
+      <p style={{color: '#FFF', fontSize: 78}}>test</p>
     </section>
   )
 }
