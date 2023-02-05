@@ -2,7 +2,7 @@
 
 import { Button, ButtonLink } from '../Button'
 import { useLanguage } from '@/app/hooks/client/useLanguage'
-import { banner, title, label, btnContainer } from './index.module.scss'
+import { banner, title, label, btnContainer, bannerContainer } from './index.module.scss'
 import { Suspense, useEffect, useState } from 'react'
 import Login from '@/app/container/login'
 import { LoginForm } from '../LoginForm'
@@ -12,50 +12,57 @@ import {
   useSearchParams,
   useSelectedLayoutSegment,
 } from 'next/navigation'
+import { Loading } from '../Loading'
 
 const Banner = ({ children, lang }) => {
   const { t } = useLanguage(lang)
   const search = useSearchParams()
+  const path = usePathname()
   const router = useRouter()
   const [login, setLogin] = useState(false)
   const match = search.toString().match(/^login=$/)
 
   const handleClick = () => {
-    router.replace('/?login')
+    window.history.replaceState({}, '', '/?login')
+    setLogin(true)
   }
 
   useEffect(() => {
     if (match) {
       setLogin(true)
-    } else {
+    } else if (search.entries().next().done) {
       setLogin(false)
-      router.push('/', { forceOptimisticNavigation: true })
+    } else {
+      window.location.href = '/'
     }
-  }, [match, router])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <>
       <div role="banner" className={banner}>
-        <div>
-          <h2 className={title}>{t('Don’t miss what’s happening')}</h2>
-          <p className={label}>
-            {t('People on Twitter are the first to know.')}
-          </p>
-        </div>
-        <div className={btnContainer}>
-          <Button type="outline" onClick={handleClick}>
-            {t('Ingresar')}
-          </Button>
-          <Button type="solid" onClick={handleClick}>
-            {t('Registrarse')}
-          </Button>
+        <div className={bannerContainer}>
+          <div>
+            <h2 className={title}>{t('No te pierdas de lo que esta pasando')}</h2>
+            <p className={label}>
+              {t('Las personas en Twitter son las primeras en saberlo.')}
+            </p>
+          </div>
+          <div className={btnContainer}>
+            <Button type="outline" onClick={handleClick}>
+              {t('Ingresar')}
+            </Button>
+            <Button type="solid" onClick={handleClick}>
+              {t('Registrarse')}
+            </Button>
+          </div>
         </div>
       </div>
-      {login && (
-        <Login>
-          <LoginForm lang={lang} />
+      <div style={{ display: login ? 'block' : 'none' }}>
+        <Login showForm={setLogin}>
+          {login && <LoginForm t={t}/>}
         </Login>
-      )}
+      </div>
     </>
   )
 }

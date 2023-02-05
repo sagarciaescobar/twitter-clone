@@ -16,7 +16,8 @@
   border-radius: 20px;
   margin: auto;
   min-width: 600px;
-  min-height: 600px;
+  height: 600px;
+  min-height: 400px;
   padding: 10px;
   position: relative;
 }
@@ -30,6 +31,9 @@
   justify-content: center;
   align-items: center;
   position: absolute;
+  outline: none;
+  background: none;
+  border: none;
 
   &:hover {
     background-color: $white-50;

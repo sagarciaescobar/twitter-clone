@@ -10,6 +10,14 @@
   align-items: center;
 }
 
+.bannerContainer {
+  max-width: 1280px;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .title {
   @include font-primary-title;
   font-weight: 700;
@@ -22,7 +30,7 @@
 .btnContainer {
   display: flex;
 
-  a:first-child {
+  button:first-child {
     margin-right: 12px;
     @include font-primary-text;
     font-weight: 700;
