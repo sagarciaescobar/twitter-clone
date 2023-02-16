@@ -46,28 +46,34 @@
 }
 
 .loginBtn {
-  margin: 20px 0;
-  width: 100%;
+  margin: 20px auto;
+  width: 220px;
   font-size: 32px;
   font-weight: 600;
   color: $primary-color;
+  background-color: $principal-white;
 }
 
 .loginInput {
   margin-top: 10px;
-  border: 2px solid $blue;
+  border: 1px solid $white-50;
   border-radius: 5px;
+  height: 48px;
   position: relative;
 
   label {
-    position: relative;
+    position: absolute;
     top: 10px;
-    left: 10px;
-    color: $secondary;
+    left: 13px;
+    color: #71767b;
     z-index: 1;
+    font-size: 16px;
+    transition: all ease-in .2s;
+    font-weight: 300;
   }
 
   input {
+    margin-top: auto;
     width: 100%;
     height: 100%;
     position: relative;
@@ -76,51 +82,29 @@
     outline: none;
     border: none;
     box-shadow: none;
+    padding: 16px 6px 6px;
     color: $secondary;
+    transition: all ease-in .2s;
   }
 
-  input:focus + label {
-    color: red;
-    font-weight: 600;
-  }
-}
-
-$google-blue: #4285f4;
-$button-active-blue: #1669F2;
-
-.googleBtn {
-  cursor: pointer;
-  width: 198px;
-  height: 42px;
-  background-color: $google-blue;
-  border-radius: 2px;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
-
-  &:hover {
-    box-shadow: 0 0 6px $google-blue;
+  input:focus {
+    outline: 2px solid $blue;
+    border-radius: 5px;
+    color: $principal-white;
+    z-index: 1;
+    font-size: 16px;
+    font-weight: 400;
   }
 
-  &:active {
-    background: $button-active-blue;
+  input:focus+label {
+    position: absolute;
+    top: 0;
+    left: 6px;
+    color: #1d9bf0;
+    z-index: 1;
+    font-size: 12px;
+    font-weight: 400;
   }
-}
-
-.googleIconWrapper {
-  position: absolute;
-  margin-top: 1px;
-  margin-left: 1px;
-  width: 40px;
-  height: 40px;
-  border-radius: 2px;
-  background-color: $white;
-}
-
-.googleIcon {
-  position: absolute;
-  margin-top: 11px;
-  margin-left: 11px;
-  width: 18px;
-  height: 18px;
 }
 
 .btnText {
@@ -135,4 +119,27 @@ $button-active-blue: #1669F2;
 .loginContainer {
   width: 250px;
   margin: auto;
+}
+
+.fullField {
+  label {
+    position: absolute;
+    top: 0;
+    left: 6px;
+    color: $white-50;
+    z-index: 1;
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  input {
+    border: none;
+    color: $principal-white;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+.btnFull {
+  width: 100%;
 }

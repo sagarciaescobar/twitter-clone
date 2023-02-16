@@ -6,9 +6,6 @@ export default function Head() {
   return (
     <>
       <title>{t('Esto es una prueba')}</title>
-      <Script
-        src="https://apis.google.com/js/api:client.js"
-      />
     </>
   )
 }
