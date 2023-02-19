@@ -2,7 +2,7 @@
 
 import { Button, ButtonLink } from '../Button'
 import { useLanguage } from '@/app/hooks/client/useLanguage'
-import { banner, title, label, btnContainer, bannerContainer } from './index.module.scss'
+import styles from './index.module.scss'
 import { Suspense, useEffect, useState } from 'react'
 import Login from '@/app/container/login'
 import { LoginForm } from '../LoginForm'
@@ -40,15 +40,15 @@ const Banner = ({ children, lang }) => {
 
   return (
     <>
-      <div role="banner" className={banner}>
-        <div className={bannerContainer}>
+      <div role="banner" className={styles.banner}>
+        <div className={styles.banner_container}>
           <div>
-            <h2 className={title}>{t('No te pierdas de lo que esta pasando')}</h2>
-            <p className={label}>
+            <h2 className={styles.title}>{t('No te pierdas de lo que esta pasando')}</h2>
+            <p className={styles.label}>
               {t('Las personas en Twitter son las primeras en saberlo.')}
             </p>
           </div>
-          <div className={btnContainer}>
+          <div className={styles.btn_container}>
             <Button type="outline" onClick={handleClick}>
               {t('Ingresar')}
             </Button>

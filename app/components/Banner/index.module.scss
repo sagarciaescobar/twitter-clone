@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.bannerContainer {
+.banner_container {
   max-width: 1280px;
   margin: auto;
   width: 100%;
@@ -27,7 +27,7 @@
   @include font-primary-text;
 }
 
-.btnContainer {
+.btn_container {
   display: flex;
 
   button:first-child {

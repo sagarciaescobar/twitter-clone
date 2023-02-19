@@ -4,19 +4,7 @@ import Image from 'next/image'
 import Head from 'next/head'
 import Script from 'next/script'
 
-import {
-  formContainer,
-  googleBtn,
-  googleIconWrapper,
-  googleIcon,
-  loginBtn,
-  btnText,
-  loginContainer,
-  divider,
-  loginInput,
-  fullField,
-  btnFull,
-} from './index.module.scss'
+import styles from './index.module.scss'
 
 import { Icon } from '../Icon'
 import { useLanguage } from '@/app/hooks/client/useLanguage'
@@ -47,31 +35,31 @@ export default function LoginForm({ t }) {
   }, [])
 
   return (
-    <div className={formContainer}>
+    <div className={styles.formContainer}>
       <Icon type="twitterIcon" color="#FFF" size={32} />
       <h2>{t('Regitrate en Twitter')}</h2>
-      <div className={loginContainer} role={'group'}>
+      <div className={styles.loginContainer} role={'group'}>
         <div id="buttonDiv" className="g-signin2"></div>
-        <Button type="solid" className={loginBtn}>
-          Sign as test user
+        <Button type="solid" className={styles.loginBtn}>
+          {t('Ingresa como usuario de prueba')}
         </Button>
-        <div className={divider}>
-          <p>or</p>
+        <div className={styles.divider}>
+          <p>{t('o')}</p>
         </div>
         <form>
           <InputForm
             autocomplete="off"
-            className={loginInput}
-            activeClass={fullField}
+            className={styles.loginInput}
+            activeClass={styles.fullField}
             type="text"
             name="username"
-            label="username, phone or email"
+            label={t('usuario, telefono o correo')}
           />
-          <Button type="solid" className={[loginBtn, btnFull].join(' ')}>
-            Next
+          <Button type="solid" className={[styles.loginBtn, styles.btnFull].join(' ')}>
+            {t('Siguiente')}
           </Button>
-          <Button type="outline" className={[loginBtn, btnFull].join(' ')}>
-            Forgot password?
+          <Button type="outline" className={[styles.loginBtn, styles.btnFull].join(' ')}>
+            {t('Olvidaste la contraseña?')}
           </Button>
         </form>
       </div>
