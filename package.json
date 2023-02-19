@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "fake-server": "json-server -p 8080 --watch sampleData.json"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -22,6 +23,7 @@
     "server-only": "0.0.1"
   },
   "devDependencies": {
+    "json-server": "^0.17.1",
     "sass": "^1.57.1"
   }
 }
